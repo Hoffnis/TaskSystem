@@ -3,6 +3,7 @@ package com.taks.demo.controller;
 import com.taks.demo.dto.request.LoginRequest;
 import com.taks.demo.dto.response.LoginResponse;
 import com.taks.demo.security.JwtService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +23,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
+    @Operation(summary = "Fazer Login")
     @PostMapping("/login")
     public LoginResponse login(@RequestBody @Valid LoginRequest request) {
 
